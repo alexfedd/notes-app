@@ -1,15 +1,20 @@
+import { useContext } from "react";
+import { AppContext } from "../App";
+import { NoteSheetForm } from "./NoteSheetForm";
 function NoteSheet() {
-    return ( <div className="note-list__right right">
-        <div className="right__title-wrapper">
-            <input type="text" className="right__title-input" placeholder="New note" />
+  const { isSelected } = useContext(AppContext);
+  return (
+    <div className="note-list__right right">
+      {isSelected === -1 ? (
+        <div className="right__no-notes no-notes">
+            <img src="" alt="None notes image" className="no-notes__image" />
+            <p className="no-notes__text">None note is selected</p>
         </div>
-        <textarea className="right__note" placeholder="Write your note here..."></textarea>
-        <div className="right__options">
-            <button className="right__delete-button">
-                <img src="" alt="Delete button" />
-            </button>
-        </div>
-    </div> );
+      ) : (
+        <NoteSheetForm />
+      )}
+    </div>
+  );
 }
 
 export default NoteSheet;

@@ -1,8 +1,12 @@
-function NoteListItem() {
-    return ( <li className="left__item list-item">
-        <h2 className="list-item__title">Note title</h2>
-        <p className="list-item__date">24.02.2022</p>
-    </li> );
+/* eslint-disable react/prop-types */
+function NoteListItem({noteTitle, noteDate, onClickHandler}) {
+
+  return (
+    <li className="left__item list-item" onClick={onClickHandler}>
+      <h2 className="list-item__title">{noteTitle}</h2>
+      <p className="list-item__date">{noteDate}</p>
+    </li>
+  );
 }
 
 export default NoteListItem;

@@ -6,19 +6,20 @@ function NoteListComp() {
   const [searchInput, setSearchInput] = useState("");
   const [searchedList, setSearchedList] = useState(notesList);
 
-  const handleSearch = () => {
-    setSearchedList(
-      notesList.filter((value) => {
-        if (
-          searchInput === "" ||
-          value?.noteTitle.toLowerCase().includes(searchInput.toLowerCase())
-        ) {
-          return value;
-        }
-      })
-    );
-  };
+
   useEffect(() => {
+    const handleSearch = () => {
+      setSearchedList(
+        notesList.filter((value) => {
+          if (
+            searchInput === "" ||
+            value?.noteTitle.toLowerCase().includes(searchInput.toLowerCase())
+          ) {
+            return value;
+          }
+        })
+      );
+    };
     handleSearch();
   }, [notesList, searchInput]);
 

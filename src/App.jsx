@@ -7,10 +7,7 @@ export const AppContext = createContext();
 
 function App() {
   const [isEditable, setIsEditable] = useState(false);
-  const [notesList, setNotesList] = useState([
-    { noteTitle: "New Note", noteText: "", noteDate: "24.02.2022" },
-    { noteTitle: "Second Note", noteText: "", noteDate: "24.02.2022" },
-  ]);
+  const [notesList, setNotesList] = useState([]);
   const [isSelected, setIsSelected] = useState(-1);
   return (
     <AppContext.Provider

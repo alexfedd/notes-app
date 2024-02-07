@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../App";
 import { NoteEditingFunctional } from "./NoteEditingFunctional";
+import deleteBtn from "./../assets/images/delete.svg";
 export function NoteSheetForm() {
   const {
     isSelected,
@@ -65,7 +66,7 @@ export function NoteSheetForm() {
       ></textarea>
       <div className="right__options">
         <button className="right__button" onClick={handleDelete}>
-          <img src="" alt="Delete button" />
+          <img src={deleteBtn} alt="Delete button" />
         </button>
         {isEditable && (
           <NoteEditingFunctional

@@ -5,7 +5,7 @@ import noNoteImage from "../assets/images/note.svg";
 function NoteSheet() {
   const { isSelected } = useContext(AppContext);
   return (
-    <div className="note-list__right right">
+    <div className={isSelected !== -1 ? 'note-list right selected' : 'note-list right'}>
       {isSelected === -1 ? (
         <div className="right__no-notes no-notes">
             <img src={noNoteImage} alt="None notes image" className="no-notes__image" />

@@ -6,7 +6,6 @@ function NoteListComp() {
   const [searchInput, setSearchInput] = useState("");
   const [searchedList, setSearchedList] = useState(notesList);
 
-
   useEffect(() => {
     const handleSearch = () => {
       setSearchedList(
@@ -24,7 +23,7 @@ function NoteListComp() {
   }, [notesList, searchInput]);
 
   return (
-    <div className="note-list__left left">
+    <div className="note-list left">
       <div className="left__input-wrapper">
         <input
           type="text"
@@ -44,7 +43,9 @@ function NoteListComp() {
                   key={key}
                   noteTitle={value?.noteTitle}
                   noteDate={value?.noteDate}
-                  onClickHandler={() => setIsSelected(key)}
+                  onClickHandler={() => {
+                    setIsSelected(key);
+                  }}
                 />
               );
             })

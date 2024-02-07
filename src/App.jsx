@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NotesList } from "./pages/NotesList";
 import { Navbar } from "./components/Navbar";
 import { useState, createContext } from "react";
+import "./assets/scss/reset.css";
+import './assets/scss/style.scss'
 
 export const AppContext = createContext();
 
@@ -24,7 +26,6 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<NotesList />} />
-          <Route path="/test" element={<h1>Test page</h1>} />
         </Routes>
       </Router>
     </AppContext.Provider>

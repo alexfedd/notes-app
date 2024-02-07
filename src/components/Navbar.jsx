@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { AppContext } from "../App";
 import { useContext } from "react";
+import penImage from "../assets/images/pen-create.svg";
 export function Navbar() {
   const {setIsEditable, notesList, setNotesList, setIsSelected} = useContext(AppContext);
   const createNewNote = () => {
@@ -15,12 +16,7 @@ export function Navbar() {
     <ul className="navbar">
       <li className="navbar__item" onClick={createNewNote}>
         <Link to={"/"}>
-          <img src="" className="navbar__image" alt="New Note" />
-        </Link>
-      </li>
-      <li className="navbar__item">
-        <Link to={"/test"}>
-          <img src="" className="navbar__image" alt="Test button" />
+          <img src={penImage} className="navbar__image" alt="New Note" />
         </Link>
       </li>
     </ul>

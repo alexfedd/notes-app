@@ -25,6 +25,8 @@
 }
 body {
   height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
   font-family: "Nunito";
   background-color: #e7e7e0;
 }

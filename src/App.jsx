@@ -25,7 +25,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<NotesList />} />
+          <Route path="/notes-app" element={<NotesList />} />
         </Routes>
       </Router>
     </AppContext.Provider>

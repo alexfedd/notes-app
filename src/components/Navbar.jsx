@@ -15,7 +15,7 @@ export function Navbar() {
   return (
     <ul className="navbar">
       <li className="navbar__item" onClick={createNewNote}>
-        <Link to={"/"} className="navbar__link">
+        <Link to={"/notes-app"} className="navbar__link">
           <img src={penImage} className="navbar__image" alt="New Note" />
         </Link>
       </li>

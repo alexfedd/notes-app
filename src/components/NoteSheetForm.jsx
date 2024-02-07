@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../App";
 import { NoteEditingFunctional } from "./NoteEditingFunctional";
 import deleteBtn from "./../assets/images/delete.svg";
+import backBtn from "./../assets/images/backBtn.svg";
 export function NoteSheetForm() {
   const {
     isSelected,
@@ -13,7 +14,7 @@ export function NoteSheetForm() {
   } = useContext(AppContext);
   const [tempTitle, setTempTitle] = useState(notesList[isSelected].noteTitle);
   const [tempText, setTempText] = useState(notesList[isSelected].noteText);
-
+  const [isEmpty, setIsEmpty] = useState(false)
   useEffect(() => {
     setTempTitle(notesList[isSelected].noteTitle);
     setTempText(notesList[isSelected].noteText);
@@ -31,19 +32,26 @@ export function NoteSheetForm() {
   };
 
   const handleSave = () => {
-    const newNotesList = [...notesList];
-    newNotesList[isSelected] = {
-      ...notesList[isSelected],
-      noteTitle: tempTitle,
-      noteText: tempText,
-    };
-    setNotesList(newNotesList);
-    setIsEditable(false);
+    if (tempTitle !== "") {
+      const newNotesList = [...notesList];
+      newNotesList[isSelected] = {
+        ...notesList[isSelected],
+        noteTitle: tempTitle,
+        noteText: tempText,
+      };
+      setNotesList(newNotesList);
+      setIsEditable(false);
+    }
   };
 
   return (
     <>
-      <div className="right__title-wrapper">
+      <button className="right__back-btn" onClick={() => {
+        setIsSelected(-1);
+      }}>
+        <img src={backBtn} alt="" />
+      </button>
+      <div className="right__title-wrapper" style={{borderColor: isEmpty && "red"}}>
         <input
           type="text"
           value={tempTitle}
@@ -52,6 +60,12 @@ export function NoteSheetForm() {
           onChange={() => {
             setTempTitle(event.target.value);
             setIsEditable(true);
+            if(event.target.value ==='') {
+              setIsEmpty(true)
+            }
+            else {
+              setIsEmpty(false)
+            }
           }}
         />
       </div>

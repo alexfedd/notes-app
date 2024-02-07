@@ -53,6 +53,7 @@ body {
 .navbar {
   flex: 0 0 auto;
   @media (max-width: 424px) {
+    display: flex;
     position: fixed;
     bottom: 0;
     padding: 24px 15px;
@@ -185,6 +186,7 @@ body {
 
 .left {
   overflow-x: hidden;
+  padding-bottom: 88px;
   flex: 1 2 50%;
   max-width: 640px;
   display: flex;

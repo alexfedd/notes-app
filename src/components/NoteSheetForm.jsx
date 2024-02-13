@@ -15,6 +15,7 @@ export function NoteSheetForm() {
   const [tempTitle, setTempTitle] = useState(notesList[isSelected].noteTitle);
   const [tempText, setTempText] = useState(notesList[isSelected].noteText);
   const [isEmpty, setIsEmpty] = useState(false)
+  
   useEffect(() => {
     setTempTitle(notesList[isSelected].noteTitle);
     setTempText(notesList[isSelected].noteText);

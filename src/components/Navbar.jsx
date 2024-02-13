@@ -8,10 +8,10 @@ export function Navbar() {
     const date = new Date();
     const todayDate = `${date.getDate()}.${date.getMonth()+1 < 10 ? `0${date.getMonth()+1}` : date.getMonth()+1}.${date.getFullYear()}`
     setNotesList([{noteTitle: "New Note", noteText: "", noteDate: todayDate}, ...notesList]);
-    console.log([{noteTitle: "New Note", noteText: "", noteDate: todayDate}, ...notesList]);
     setIsEditable(true);
     setIsSelected(0);
   }
+  
   return (
     <ul className="navbar">
       <li className="navbar__item" onClick={createNewNote}>
